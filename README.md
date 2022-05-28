@@ -71,6 +71,22 @@ f_1(w)=\frac{\sigma^{2}}{2\pi},\omega\in[-\pi,\pi]
 $$
 
 
+<p align="center">
+First  equation:  $Y =Xβ+ϵ_y , ∀X $ <br>
+Second equation: $X=Zγ+ϵ_x $ <br>
+</p>
+
+$$
+f_1(w)=\frac{\sigma^{2}}{2\pi},\omega\in[-\pi,\pi]
+$$
+
+$$
+\begin{align*}
+\ \text{First  equation}  Y =Xβ+ϵ_y , ∀X 
+\\\text{Second equation:}   $X=Zγ+ϵ_x 
+\end{align*}
+$$ 
+
 <center>
   
 
