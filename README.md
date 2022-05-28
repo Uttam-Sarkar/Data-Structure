@@ -76,14 +76,13 @@ First  equation:  $Y =Xβ+ϵ_y , ∀X $ <br>
 Second equation: $X=Zγ+ϵ_x $ <br>
 </p>
 
-$$
-f_1(w)=\frac{\sigma^{2}}{2\pi},\omega\in[-\pi,\pi]
-$$
+kkkk
 
 $$
 \begin{align*}
-\ \text{First  equation:} & Y=X \beta+\epsilon_y, \forall x
-\\ \text{Second equation:} &  X=Z\gamma + \epsilon_x
+\ \text{First  equation: } & Y=X \beta+\epsilon_y, \forall x  
+
+\\ \text{Second equation: } &  X=Z\gamma + \epsilon_x
 \end{align*}
 $$ 
 
