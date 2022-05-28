@@ -81,8 +81,7 @@ kkkk
 $$
 \begin{align*}
 \ \text{First  equation: } & Y=X \beta+\epsilon_y, \forall x  
-
-\\ \text{Second equation: } &  X=Z\gamma + \epsilon_x
+\\\ \text{Second equation: } &  X=Z\gamma + \epsilon_x
 \end{align*}
 $$ 
 
