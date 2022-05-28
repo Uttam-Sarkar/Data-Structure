@@ -62,8 +62,8 @@ Licensed under the MIT License. You may not use this file except in complianse w
 
 
 <p align="center">
-First  equation:  $Y =Xβ+ϵ y , ∀X $ <br>
-Second equation: $X=Zγ+ϵ x $ <br>
+First  equation:  $Y =Xβ+ϵ_y , ∀X $ <br>
+Second equation: $X=Zγ+ϵ_x $ <br>
 </p>
 
 $$
