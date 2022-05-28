@@ -82,19 +82,16 @@ $$
 
 $$
 \begin{align*}
-\ \text{First  equation}  Y =Xβ+ϵ_y , ∀X 
-\\\text{Second equation:}   $X=Zγ+ϵ_x 
+\ \text{First  equation:} & Y=X \beta+\epsilon_y, \forall x
+\\ \text{Second equation:} &  X=Z\gamma + \epsilon_x
 \end{align*}
 $$ 
 
-<center>
+$$
+f_1(w)=\frac{\sigma^{2}}{2\pi},\omega\in[-\pi,\pi]
+$$
   
 
-First equation: $ Y=X \beta+\epsilon_y, \forall x $<br>
-Second equation: $ X=Z\gamma + \epsilon_x $
-
-$f_1(w)=\frac{\sigma^{2}}{2\pi},\omega\in[-\pi,\pi]$
-</center>
 
 1. First item a. first sub-item A) first sub-sub-item b. second sub-item
 2. Second item
