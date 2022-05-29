@@ -9,12 +9,17 @@ struct node
 
 struct node *start = (struct node*) malloc(sizeof(struct node));
 struct node *last = start;
+int counts=1;
 
-void insertFornt(struct node* start)
+void insertFornt(int value)
 {
+    struct node *ptr =(struct node*) malloc(sizeof(struct node));
+    ptr->link = start;
+    start = ptr;
+    ptr->data = value;
 
 }
-void insertLast(int n)
+void insertEnd(int n)
 {
     struct node *ptr =(struct node*) malloc(sizeof(struct node));
     ptr->data =  n;
@@ -23,9 +28,21 @@ void insertLast(int n)
     ptr ->link=NULL;
 
 }
-void insert(struct node* start)
+void insert(int value,int loc)
 {
 
+    struct node *ptr =(struct node*) malloc(sizeof(struct node));
+    struct node *aa = NULL;
+    ptr->data = value;
+    int c=1;
+    aa = start;
+    while(aa->link != NULL && c !=  loc-1)
+        {
+            c++;
+            aa=aa->link;
+        }
+        ptr->link = aa->link;
+        aa->link=ptr;
 }
 void Print()
 {
@@ -43,23 +60,59 @@ void Print()
 }
 int main()
 {
-
-    int n;
-    cout << "Enter the first number of the array: " << endl;
-    cin >> n;
-    start -> data = n;
+cout << "Enter Position and Value : " << endl;
+cout << "1 ";
+    int value,loc;
+    cin >> value;
+    start -> data = value;
     start->link=NULL;
+    cout << "The all element is: ";
+    Print();
 
-    while(n != -1)
-    {
-        cout << "Enter a number to insert Last: " << endl;
-        cin >> n;
-        if(n != -1)
-        {insertLast(n);
-        cout << "The all element is: ";
-        Print();
+ while(1)
+ {
+        cin >> loc ;
 
+        if(loc > 0)
+        {
+            cin >> value;
+
+        // last
+        if(loc == counts+1)
+        {
+            counts++;
+            insertEnd(value);
+            cout << "The all element is: ";
+            Print();
         }
 
+        //front
+        else if(loc == 1)
+        {
+            counts++;
+            insertFornt(value);
+            cout << "The all element is: ";
+            Print();
+        }
+
+        //any
+        else if(loc > 0 && loc <= counts)
+        {
+            insert(value, loc);
+            counts++;
+            cout << "The all element is: ";
+            Print();
+        }
+
+        else
+        {
+            cout << "ERROR ! " << endl;
+        }
+
+        }
+        else
+        {
+            break;
+        }
     }
 }
