@@ -1,11 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
+const int N = 1e5+10;
 int counte ;
-string exple = "1+257*5+(2-1)";
-double charToNum()
+
+double substituteValue(char ch)
+{
+    counte++;
+    if(ch == 'A')
+        return 10.8;
+    if(ch == 'D')
+        return 20;
+
+    return 0;
+}
+
+double charToNum(string exple)
 {
     double num = 0;
-    double indexnum;
+    double indexnum ;
     for( ; exple[counte] != ',' && exple[counte] != ')' ; counte++)
     {
         indexnum = exple[counte]-'0';
@@ -13,20 +25,17 @@ double charToNum()
     }
     return num;
 }
-
 // stack
-
-   int maxsize = 1000;
-   double ans[1000] = {0};
+   double STACK[N] = {0};
    int id = 0;
 
 void push(double p)
 {
-    if(id > maxsize)
+    if(id > N)
             {
                 cout << "Array Overflow" << endl;
             }
-     ans[id]=p;
+     STACK[id]=p;
      id++;
 }
 void pop()
@@ -34,20 +43,19 @@ void pop()
      if(id <= 0)
     {
         cout << "Array Underflow" << endl;
-      //  return 0;
     }
-    ans[id] = 0;
+    STACK[id] = 0;
     id--;
 }
 double top()
 {
-    return ans[id-1];
+    return STACK[id-1];
 }
-double evaluatePostfix(){
+double evaluatePostfix(string exple){
     counte=0;
-exple = exple + ")";
+    exple = exple + ")";
     int len = exple.size();
-   double p,q;
+    double p,q;//Oparetional 2 num
     for(; counte < len; counte++)
     {
         if(exple[counte] != ')')
@@ -94,27 +102,31 @@ exple = exple + ")";
             }
             else
             {
-                push(charToNum());
-                //push(',');
 
+                if(exple[counte]>='a' && exple[counte]<='z' || exple[counte]>='A' && exple[counte]<='Z' )
+                   {
+                    push(substituteValue(exple[counte]));
+                   } 
+                else
+                {
+                    push(charToNum(exple));
+                }
             }
         }
     }
 return top();
 }
 
-string infixToPostfix()
+string infixToPostfix(string q)
 {
     counte=0;
-     string q = exple;
-         cout << q << endl;
+    cout << q << endl;
 
-      q = q + ")";
+    q = q + ")";
     string expe;// RESULT
     string CtoS;
-
     push('(');
-    int len = exple.size();
+    int len = q.size();
     for(; counte <= len; counte++)
     {
 
@@ -127,8 +139,8 @@ string infixToPostfix()
                 CtoS = CtoS + q[counte];
                 counte++;
             }
+             expe = expe + CtoS;
             expe = expe + ',';
-            expe = expe + CtoS;
             counte--;
         }
 
@@ -141,8 +153,8 @@ string infixToPostfix()
             while(top() != '(')
             {
             CtoS = top();
-            expe = expe + ',';
             expe = expe + CtoS;
+            expe = expe + ',';
              pop();
             }
             push(q[counte]);
@@ -151,10 +163,10 @@ string infixToPostfix()
         {
             while(top() != '(' && top() != '-' && top() != '+' )
             {
-             CtoS = top();
-             expe = expe + ',';
+            CtoS = top();
             expe = expe + CtoS;
-             pop();
+            expe = expe + ',';
+            pop();
             }
             push(q[counte]);
         }
@@ -167,23 +179,26 @@ string infixToPostfix()
             while(top() != '(' )
             {
             CtoS = top();
-            expe = expe + ',';
             expe = expe + CtoS;
+            expe = expe + ',';
            pop();
 
             }
            pop();
         }
     }
+
+    int siz = expe.size()-1;
+    expe.resize(siz);
     return expe;
 }
 
 int main()
 {
-string ans;
-   ans = infixToPostfix();
-   exple = ans;
-   cout << exple << endl;
-   double c = evaluatePostfix();
-  cout <<  c <<endl;
+    string exple;
+    cin >> exple;
+    exple = infixToPostfix(exple);
+    cout << exple << endl;
+    double c = evaluatePostfix(exple);
+    cout <<  c <<endl;
 }
