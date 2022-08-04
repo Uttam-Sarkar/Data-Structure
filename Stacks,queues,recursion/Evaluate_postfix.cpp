@@ -5,7 +5,6 @@ int counte = 0;
 int charToNum(string exp)
 {
     int num = 0;
-
     int indexnum;
     for( ; exp[counte] != ',' && exp[counte] != ')' ; counte++)
     {
@@ -19,7 +18,11 @@ int charToNum(string exp)
 
 int main()
 {
-    string exp = "5,6,2,+,*,12,4,/,-,)";
+
+    string exp = "1,2,54,*,+,2,1,-,+";
+   // cin >> exp;
+
+    exp = exp + ")";
 
     stack<int> ans;
         int len = exp.size();
